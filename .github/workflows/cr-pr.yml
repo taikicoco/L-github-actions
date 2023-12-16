@@ -1,4 +1,4 @@
-name: create-pr-for-release-prod
+name: create-pr
 
 on:
   push:
