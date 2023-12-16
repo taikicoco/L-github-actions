@@ -1,4 +1,4 @@
-name: create-pr-for-release-prod
+name: create-pr
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - develop
 
 env:
-  GH_TOKEN: ${{ secrets.TAIKI_TOKEN }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   create-release-pr:
