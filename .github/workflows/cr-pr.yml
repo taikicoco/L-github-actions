@@ -1,4 +1,4 @@
-name: create-pr
+name: create-pr-for-release-prod
 
 on:
   push:
@@ -9,11 +9,10 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  create-pr:
+  create-release-pr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-    
-      - name: Create Pull Request
+      - name: create release pr      
         run: |
-          gh pr create -B main -t "Create PR from Action" -b "hello world."
+          gh pr create -B main -t "create pr" -b "create pr"
