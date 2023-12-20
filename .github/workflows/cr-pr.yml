@@ -3,7 +3,7 @@ name: create-pull-request
 on:
   push:
     branches:
-      - main
+      - dev
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ permissions:
   pull-requests: write
 
 env:
-  GH_TOKEN: ${{ secrets.TAIKI_TOKEN }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   go-run:
@@ -51,4 +51,4 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: create release pr      
-        run: gh pr create --base prod --title "Auto Create Pull Request :rocket:" --body "auto create pr" --repo ${{ github.repository }}
+        run: gh pr create --base main --title "Auto Create Pull Request :rocket:" --body "auto create pr" --repo ${{ github.repository }}
