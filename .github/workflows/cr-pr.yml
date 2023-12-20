@@ -39,9 +39,10 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git switch -c auto-commit
           git add .
           git commit -m 'auto commit'
-          git push
+          git push origin auto-commit
 
   create-release-pr:
     runs-on: ubuntu-latest
