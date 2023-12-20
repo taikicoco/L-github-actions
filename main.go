@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
-	"os"
+	_"os"
 	"time"
 )
 
@@ -33,18 +33,18 @@ func main() {
 	data := Data{RandomString: randomStr}
 
 	// JSONに変換
-	file, err := json.MarshalIndent(data, "", " ")
+	_, err := json.MarshalIndent(data, "", " ")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	// ファイルに書き込み
-	err = os.WriteFile("random.json", file, 0644)
-	if err != nil {
-		fmt.Println("Error writing to file:", err)
-		return
-	}
+	// // ファイルに書き込み
+	// err = os.WriteFile("random.json", file, 0644)
+	// if err != nil {
+	// 	fmt.Println("Error writing to file:", err)
+	// 	return
+	// }
 
 	fmt.Println("Random JSON file created successfully.")
 }
