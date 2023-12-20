@@ -5,8 +5,13 @@ on:
     branches:
       - develop
 
+permissions:
+  contents: write
+  packages: read
+  pull-requests: write
+
 env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.TAIKI_TOKEN }}
 
 jobs:
   go-run:
@@ -34,12 +39,11 @@ jobs:
 
   create-release-pr:
     runs-on: ubuntu-latest
-    needs:
-      - go-run
+    needs: go-run
 
     steps:
       - uses: actions/checkout@v3
 
       - name: create release pr      
         run: |
-          gh pr create -B main -t "create pr" -b "create pr"
+          gh pr create --base main --title "create pr" --body "create pr" --repo ${{ github.repository }}
